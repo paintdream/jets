@@ -1,0 +1,16 @@
+{
+  "name": "jets",
+  "version": "0.0.0",
+  "description": "Node.js jets",
+  "main": "jets.js",
+  "private": true,
+  "dependencies": {
+    "bindings": "~1.2.1",
+    "node-addon-api": "^2.0.0",
+    "node-gyp": "^6.1.0"
+  },
+  "scripts": {
+    "test": "node jets.js"
+  },
+  "gypfile": true
+}
