@@ -7,6 +7,7 @@ function createWindow () {
 	const mainWindow = new BrowserWindow({
 		width: 800,
 		height: 600,
+		autoHideMenuBar: true,
 		webPreferences: {
 			preload: path.join(__dirname, 'preload.js')
 		}
@@ -18,6 +19,8 @@ function createWindow () {
 	// Open the DevTools.
 	// mainWindow.webContents.openDevTools()
 }
+
+app.allowRendererProcessReuse = true;
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
