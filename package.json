@@ -2,15 +2,18 @@
   "name": "jets",
   "version": "0.0.0",
   "description": "Node.js jets",
-  "main": "jets.js",
-  "private": true,
+  "main": "main.js",
   "dependencies": {
     "bindings": "~1.2.1",
     "node-addon-api": "^2.0.0",
-    "node-gyp": "^6.1.0"
+    "node-gyp": "^6.1.0",
+    "electron": "^1.7.16",
+    "total.js": "latest",
+    "electron-window-state": "^4.1.1"
   },
   "scripts": {
-    "test": "node jets.js"
+    "jets": "node jets.js",
+    "start": "electron ."
   },
   "gypfile": true
 }
