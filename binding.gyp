@@ -19,7 +19,9 @@
 				"Core/Interface/IReflect.h",
 				"Core/Interface/IReflect.cpp",
 				"Core/System/Tiny.h",
-				"Core/System/Tiny.cpp"
+				"Core/System/Tiny.cpp",
+				"Component/Component.h",
+				"Component/Component.cpp"
 			],
 			"include_dirs": [
 				"<!@(node -p \"require('node-addon-api').include\")"
