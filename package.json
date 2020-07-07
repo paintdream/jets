@@ -5,7 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "bindings": "~1.2.1",
-    "electron": "^1.7.16",
+    "electron": "^9.1.0",
     "electron-window-state": "^4.1.1",
     "mosca": "^2.8.3",
     "mqtt": "^3.0.0",
@@ -15,7 +15,7 @@
     "total.js": "latest"
   },
   "devDependencies": {
-    "electron": "^1.7.16",
+    "electron": "^9.1.0",
     "total.js": "latest"
   },
   "scripts": {
