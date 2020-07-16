@@ -220,16 +220,15 @@ void JetScript::Request::CloseValue() {
 	tableLevel--;
 }
 
+IScript::Request& JetScript::Request::operator >> (IScript::Request::Arguments& args) {
+	args.count = initCount - idx + 1;
+	return *this;
+}
+
 IScript::Request& JetScript::Request::operator << (const IScript::Request::Global&) {
 	Value v = env.Global();
 	Write(v);
 	OpenValue(v);
-	return *this;
-}
-
-IScript::Request& JetScript::Request::operator << (const IScript::Request::Local&) {
-	// accessing local variable is not allowed
-	assert(false);
 	return *this;
 }
 
@@ -284,12 +283,12 @@ IScript::Request& JetScript::Request::operator >> (const IScript::Request::Array
 }
 
 IScript::Request& JetScript::Request::operator << (const IScript::Request::Key& k) {
-	key = k.GetKey();
+	key = k.name;
 	return *this;
 }
 
 IScript::Request& JetScript::Request::operator >> (const IScript::Request::Key& k) {
-	key = k.GetKey();
+	key = k.name;
 	return *this;
 }
 
@@ -359,18 +358,6 @@ IScript::Request& JetScript::Request::operator << (const AutoWrapperBase& wrappe
 	}, copy);
 
 	Write(func);
-	return *this;
-}
-
-IScript::Request& JetScript::Request::operator >> (const Skip& skip) {
-	if (tableLevel != 0) {
-		if (key.empty()) {
-			IncreaseTableIndex(skip.count);
-		}
-	} else {
-		idx += skip.count;
-	}
-
 	return *this;
 }
 

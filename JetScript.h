@@ -24,13 +24,13 @@ public:
 		virtual Request::Ref Load(const String& script, const String& pathname) override;
 		virtual IScript::Request& Push() override;
 		virtual IScript::Request& Pop() override;
+		virtual IScript::Request& operator >> (IScript::Request::Arguments&) override;
 		virtual IScript::Request& operator >> (IScript::Request::Ref&) override;
 		virtual IScript::Request& operator << (const IScript::Request::Ref&) override;
 		virtual IScript::Request& operator << (const IScript::Request::Nil&) override;
 		virtual IScript::Request& operator << (const IScript::BaseDelegate&) override;
 		virtual IScript::Request& operator >> (IScript::BaseDelegate&) override;
 		virtual IScript::Request& operator << (const IScript::Request::Global&) override;
-		virtual IScript::Request& operator << (const IScript::Request::Local&) override;
 		virtual IScript::Request& operator << (const IScript::Request::TableStart&) override;
 		virtual IScript::Request& operator >> (IScript::Request::TableStart&) override;
 		virtual IScript::Request& operator << (const IScript::Request::TableEnd&) override;
@@ -52,7 +52,6 @@ public:
 		virtual IScript::Request& operator << (bool b) override;
 		virtual IScript::Request& operator >> (bool& b) override;
 		virtual IScript::Request& operator << (const AutoWrapperBase& wrapper) override;
-		virtual IScript::Request& operator >> (const Skip& skip) override;
 		virtual IScript::Request& MoveVariables(IScript::Request& target, size_t count) override;
 		virtual void Dereference(IScript::Request::Ref& ref) override;
 		virtual IScript::Request::Ref Reference(const IScript::Request::Ref& d) override;
